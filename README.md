@@ -44,7 +44,7 @@ Validation/
 ```
 ```
 Testing/
-   images/  (labels/ , if avilable)
+   images/  labels/ (if avilable)
 ```
    
 ### Training
