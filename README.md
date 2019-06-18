@@ -63,6 +63,12 @@ python test.py --num_classes XX --save_path XXX --model XXX --test_path /path/to
 ```
 python metric.py /path/to/outputs_tobe_evaluated /path/to/groundtruths Number_Of_Classes
 ```
+### Cross Validation
+```
+First, make sure you have your data organized as above (refer to "Data Preparation").
+
+
+```
 
 ## Authors
 
