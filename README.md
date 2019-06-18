@@ -61,7 +61,7 @@ python test.py --num_classes XX --save_path XXX --model XXX --test_path /path/to
 ```
 ### Evaluation
 ```
-python metric.py /path/to/outputs_tobe_evaluated /path/to/groundtruths number of classes
+python metric.py /path/to/outputs_tobe_evaluated /path/to/groundtruths Number_Of_Classes
 ```
 
 ## Authors
