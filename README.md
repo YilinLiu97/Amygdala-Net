@@ -11,6 +11,7 @@ A segmentation model for extremely small brain structures, e.g., amygdala and it
 ```
 Python 2.7
 PyTorch 0.4.1
+numpy 1.14.5
 ```
 
 ### Installing
@@ -19,6 +20,7 @@ PyTorch 0.4.1
 ```
 pip install torch==0.4.1 -f https://download.pytorch.org/whl/cu100/stable --user
 pip install imgaug --user
+pip install sklearn --user
 ```
 ### If you got this error: numpy.core.multiarray failed to import, do:
 '''
