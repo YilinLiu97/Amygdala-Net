@@ -31,7 +31,7 @@ pip install numpy -l
 ```
 /study/utaut2/YL_AmygNet
 ```
-### Preparation for the data
+### Data Preparation
 Organize your folders as below:
 ```
 Dataset/
@@ -55,9 +55,9 @@ python train.py --sup_only True --data_path /path/to/Dataset--sourcefolder Train
 ```
 python val.py --val_path /path/to/Dataset/Validation --valimagefolder images --vallabelfolder labels --model Test --num_gpus 3 --num_classes XX
 ```
-### Testing
+### Testing, using the "best epoch" number shown after validation for "test_epoch"
 ```
-python test.py --num_classes XX --save_path XXX --model XXX --test_path /path/to/Testing/images --test_epoch N (use the best epoch shown during validation)
+python test.py --num_classes XX --save_path XXX --model XXX --test_path /path/to/Testing/images --test_epoch N 
 ```
 ### Evaluation
 ```
