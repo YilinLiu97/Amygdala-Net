@@ -30,17 +30,33 @@ pip install numpy -l
 ### Path to the code
 /study/utaut2/YL_AmygNet
 
-## Training
+### Preparation for the data
+Create a single folder that contains the following three folders
+'''
+Dataset/
+   Training/  Labels/   Validation/
+'''
 
-Explain how to run the automated tests for this system
-
+'''
+Validation/
+   images/  labels/
+'''
+'''
+Testing/
+   images/  (labels/ , if avilable)
+'''
+   
+### Training
+'''
+python train.py --sup_only True --data_path /path/to/Dataset--sourcefolder Training --labelfolder Labels --experiment_name XXX --num_classes XX --triple False --num_epochs XX
+'''
+### Validation
+'''python val.py --val_path /path/to/Dataset/Validation --valimagefolder images --vallabelfolder labels --model Test --num_gpus 3 --num_classes 11
+'''
 ### Testing
-
-
-```
-Give an example
-```
-
+'''
+python test.py --num_classes XX --save_path XXX --model XXX --test_path /path/to/Testing/images --test_epoch N (use the best epoch shown during validation)
+'''
 
 ## Authors
 
