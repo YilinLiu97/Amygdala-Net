@@ -32,7 +32,7 @@ pip install numpy -l
 /study/utaut2/YL_AmygNet
 ```
 ### Preparation for the data
-Create a single folder that contains the following three folders
+Organize your folders as below:
 ```
 Dataset/
    Training/  Labels/   Validation/
