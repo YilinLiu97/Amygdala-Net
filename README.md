@@ -26,6 +26,10 @@ pip install sklearn --user
 '''
 pip install numpy -l
 '''
+
+### Path to the code
+/study/utaut2/YL_AmygNet
+
 ## Training
 
 Explain how to run the automated tests for this system
