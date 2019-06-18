@@ -18,8 +18,12 @@ PyTorch 0.4.1
 (for Waisman users)
 ```
 pip install torch==0.4.1 -f https://download.pytorch.org/whl/cu100/stable --user
+pip install imgaug --user
 ```
-
+### If you got this error: numpy.core.multiarray failed to import, do:
+'''
+pip install numpy -l
+'''
 ## Training
 
 Explain how to run the automated tests for this system
