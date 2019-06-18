@@ -53,7 +53,7 @@ python train.py --sup_only True --data_path /path/to/Dataset--sourcefolder Train
 ```
 ### Validation
 ```
-python val.py --val_path /path/to/Dataset/Validation --valimagefolder images --vallabelfolder labels --model Test --num_gpus 3 --num_classes 11
+python val.py --val_path /path/to/Dataset/Validation --valimagefolder images --vallabelfolder labels --model Test --num_gpus 3 --num_classes XX
 ```
 ### Testing
 ```
