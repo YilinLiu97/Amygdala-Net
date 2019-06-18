@@ -59,6 +59,10 @@ python val.py --val_path /path/to/Dataset/Validation --valimagefolder images --v
 ```
 python test.py --num_classes XX --save_path XXX --model XXX --test_path /path/to/Testing/images --test_epoch N (use the best epoch shown during validation)
 ```
+### Evaluation
+```
+python metric.py /path/to/outputs_tobe_evaluated /path/to/groundtruths N(number of classes, e.g., 3)
+```
 
 ## Authors
 
