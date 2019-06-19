@@ -14,7 +14,7 @@ PyTorch 0.4.1
 numpy 1.14.5
 ```
 
-### Installing
+### Installation
 
 (for Waisman users)
 ```
