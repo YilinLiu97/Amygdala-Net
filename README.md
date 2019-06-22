@@ -44,7 +44,7 @@ Validation/
 ```
 ```
 Testing/
-   images/  labels/ (if avilable)
+   images/  labels/ (if available)
 ```
    
 ### Training ('num_classes' should include background, i.e., N+1)
