@@ -47,7 +47,7 @@ Testing/
    images/  labels/ (if avilable)
 ```
    
-### Training
+### Training ('num_classes' should include background, i.e., N+1)
 ```
 python train.py --sup_only True --data_path /path/to/Dataset--sourcefolder Training --labelfolder Labels --experiment_name XXX --num_classes XX --triple False --num_epochs XX
 ```
