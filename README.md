@@ -1,7 +1,8 @@
 # AmygNet
 
-A segmentation model for extremely small brain structures, e.g., amygdala and its subnuclei.
+A segmentation FCN with a top-down attention mechanism for extremely small brain structures, e.g., amygdala and its subnuclei.
 
+![Att_image](https://github.com/YilinLiu97/AmygNet-Pytorch/blob/master/Att_details-cropped.pdf)
 ## Getting Started
 
 
