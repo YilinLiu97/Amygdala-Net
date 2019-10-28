@@ -1,19 +1,4 @@
-"""
-3D Squeeze and Excitation Modules
-*****************************
-3D Extensions of the following 2D squeeze and excitation blocks:
 
-    1. `Channel Squeeze and Excitation <https://arxiv.org/abs/1709.01507>`_
-    2. `Spatial Squeeze and Excitation <https://arxiv.org/abs/1803.02579>`_
-    3. `Channel and Spatial Squeeze and Excitation <https://arxiv.org/abs/1803.02579>`_
-
-New Project & Excite block, designed specifically for 3D inputs
-    'quote'
-
-    Coded by -- Anne-Marie Rickmann (https://github.com/arickm)
-"""
-
-from enum import Enum
 import torch
 from torch import nn as nn
 from torch.nn import functional as F
