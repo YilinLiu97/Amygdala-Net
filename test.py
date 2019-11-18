@@ -48,7 +48,7 @@ def generate_indexes(patch_shape, expected_shape, pad_shape=[26,26,26]) :
 def reconstruct_volume(patches, expected_shape) :
     patch_shape = patches.shape
 
-    reconstructed_img = np.zeros((191,236,171))
+    reconstructed_img = np.zeros(tuple(expected_shape))
 
     for count, coord in enumerate(generate_indexes(patch_shape, expected_shape)) :
         selection = [slice(coord[i], coord[i] + patch_shape[i+1]) for i in range(len(coord))]
@@ -89,7 +89,7 @@ def test(test_loader,model,args):
                print('softout.shape: ',softout.shape)
                segmentation_all = []
                for c in range(args.num_classes):
-                   smArray = reconstruct_volume(softout[:,:,:,:,c],[191,236,171])
+                   smArray = reconstruct_volume(softout[:,:,:,:,c], args.expected_recon_shape)
                    segmentation_all.append(smArray)
                print('segmentation_all.shape: ', np.array(segmentation_all).shape)
                save_vol(segmentation_all,imgID,loc=args.result_path,crf_n_iter=args.crf_n_iter,use_crf=args.crf)
@@ -97,7 +97,7 @@ def test(test_loader,model,args):
             else:
                out = torch.max(out,4)[1].cuda()
                print(out.size())
-               segmentation = reconstruct_volume(out.data.cpu().numpy(),[191,236,171])
+               segmentation = reconstruct_volume(out.data.cpu().numpy(), args.expected_recon_shape)
 
         #    print('label1.sum(): ',np.sum(out.data.cpu().numpy()==1))
         #    print('label2.sum(): ',np.sum(out.data.cpu().numpy()==2))
@@ -143,7 +143,7 @@ def test_AdaBN(test_loader,model,args):
                print('softout.shape: ',softout.shape)
                segmentation_all = []
                for c in range(args.num_classes):
-                   smArray = reconstruct_volume(softout[:,:,:,:,c],[191,236,171])
+                   smArray = reconstruct_volume(softout[:,:,:,:,c], args.expected_recon_shape)
                    segmentation_all.append(smArray)
                print('segmentation_all.shape: ', np.array(segmentation_all).shape)
                save_vol(segmentation_all,imgID,loc=args.result_path,crf_n_iter=args.crf_n_iter,use_crf=args.crf)
@@ -151,7 +151,7 @@ def test_AdaBN(test_loader,model,args):
             else:
                out = torch.max(out,4)[1].cuda()
                print(out.size())
-               segmentation = reconstruct_volume(out.data.cpu().numpy(),[191,236,171])
+               segmentation = reconstruct_volume(out.data.cpu().numpy(),args.expected_recon_shape)
 
                save_vol(segmentation,imgID,loc=args.result_path,crf_n_iter=args.crf_n_iter,use_crf=args.crf)
 
@@ -243,6 +243,7 @@ if __name__ == '__main__':
     parser.add_argument('--ema_test',default=False,type=bool)
     parser.add_argument('--test_state',default=True,type=str2bool)
     parser.add_argument('--triple',default=False,type=str2bool)
+    parser.add_argument('--args.expected_recon_shape', default=[191,236,171], nargs='+',type=int)
 
     args = parser.parse_args()
     print("input arguments:")
