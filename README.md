@@ -1,6 +1,6 @@
 # AmygNet
 
-A segmentation FCN with a top-down attention mechanism for extremely small brain structures, e.g., amygdala and its subnuclei.
+A 3D FCN with a top-down attention mechanism for segmenting extremely small brain structures, e.g., amygdala and its subnuclei.
 
 ![Att_image](https://github.com/YilinLiu97/AmygNet-Pytorch/blob/master/Fig_3.jpg)
 ## Getting Started
