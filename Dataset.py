@@ -31,7 +31,7 @@ class MakeTrainData(object):
               _,self.mean,self.std = normalization(TrainData_path)
 
            else:
-              self.mean, self.std = 0,1 #std = 0 to avoid 'divide-by-0' error
+              self.mean, self.std = 0,1 #std = 1 to avoid 'divide-by-0' error
 
            LabelData_path = folder2_path
            LabelData_dir = listdir(LabelData_path)
