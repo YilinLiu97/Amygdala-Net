@@ -98,10 +98,6 @@ def test(test_loader,model,args):
                out = torch.max(out,4)[1].cuda()
                print(out.size())
                segmentation = reconstruct_volume(out.data.cpu().numpy(), args.expected_recon_shape)
-
-        #    print('label1.sum(): ',np.sum(out.data.cpu().numpy()==1))
-        #    print('label2.sum(): ',np.sum(out.data.cpu().numpy()==2))
-
                save_vol(segmentation,imgID,loc=args.result_path,crf_n_iter=args.crf_n_iter,use_crf=args.crf)
          
         print('------------ Evaluation Done! --------------')
