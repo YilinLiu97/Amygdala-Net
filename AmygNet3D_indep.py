@@ -1,5 +1,4 @@
 import torch
-from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
@@ -7,10 +6,6 @@ import nibabel as nib
 from Dataset import Crop
 import torch.optim as optim
 import math
-#from non_local_dot_product import NONLocalBlock3D
-#from GroupNorm3D import GroupNorm3D
-#from AdaDropout_onlyW import AdaDropout
-#from AdaDropout_RNG_Only import AdaDropout_RNG_Only
 from AdaDropout_dynamic import AdaDropout
 
 class ConvBlock(nn.Module):
@@ -103,7 +98,6 @@ class AmygNet3D(nn.Module):
             elif isinstance(m, nn.BatchNorm3d):
                nn.init.constant_(m.bias.data, 0.0)
                nn.init.normal_(m.weight.data, 1.0, 0.02)
-               nn.init.constant_(m.bias.data, 0.0)
 
     def forward(self,x,args, triple=False):
 
