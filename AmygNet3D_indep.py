@@ -6,7 +6,6 @@ import nibabel as nib
 from Dataset import Crop
 import torch.optim as optim
 import math
-from AdaDropout_dynamic import AdaDropout
 
 class ConvBlock(nn.Module):
 
