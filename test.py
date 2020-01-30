@@ -45,7 +45,7 @@ def generate_indexes(patch_shape, expected_shape, pad_shape=[26,26,26]) :
     return itertools.product(*idxs)
 
 
-def reconstruct_volume(patches, expected_shape) :
+def reconstruct_volume(args, patches, expected_shape) :
     patch_shape = patches.shape
 
     reconstructed_img = np.zeros(tuple(expected_shape))
@@ -54,9 +54,11 @@ def reconstruct_volume(patches, expected_shape) :
         selection = [slice(coord[i], coord[i] + patch_shape[i+1]) for i in range(len(coord))]
         print('selection: ', selection)
         reconstructed_img[selection] = patches[count]
-
-    return np.flipud(reconstructed_img)
-
+    
+    if args.evaluate:
+       return reconstructed_img
+    else: 
+       return np.flipud(reconstructed_img)
 
 
 def test(test_loader,model,args):
@@ -89,7 +91,7 @@ def test(test_loader,model,args):
                print('softout.shape: ',softout.shape)
                segmentation_all = []
                for c in range(args.num_classes):
-                   smArray = reconstruct_volume(softout[:,:,:,:,c], args.expected_recon_shape)
+                   smArray = reconstruct_volume(args, softout[:,:,:,:,c], args.expected_recon_shape)
                    segmentation_all.append(smArray)
                print('segmentation_all.shape: ', np.array(segmentation_all).shape)
                save_vol(segmentation_all,imgID,loc=args.result_path,crf_n_iter=args.crf_n_iter,use_crf=args.crf)
@@ -97,7 +99,7 @@ def test(test_loader,model,args):
             else:
                out = torch.max(out,4)[1].cuda()
                print(out.size())
-               segmentation = reconstruct_volume(out.data.cpu().numpy(), args.expected_recon_shape)
+               segmentation = reconstruct_volume(args, out.data.cpu().numpy(), args.expected_recon_shape)
                save_vol(segmentation,imgID,loc=args.result_path,crf_n_iter=args.crf_n_iter,use_crf=args.crf)
          
         print('------------ Evaluation Done! --------------')
@@ -228,6 +230,7 @@ if __name__ == '__main__':
     parser.add_argument('--norm_type', default='self',help='options: group, self, none')
 
     # Test related arguments
+    parser.add_argument('--evaluate',default=False,type=bool)
     parser.add_argument('--num_gpus',default=1,type=int)
     parser.add_argument('--batch_size',default=1,type=int)
     parser.add_argument('--test_epoch',default=360,type=int)
