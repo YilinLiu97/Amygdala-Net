@@ -3,6 +3,12 @@
 A 3D FCN with a top-down attention mechanism for segmenting extremely small brain structures, e.g., amygdala and its subnuclei.
 
 ![Att_image](https://github.com/YilinLiu97/AmygNet-Pytorch/blob/master/Fig_3.jpg)
+
+# Citation
+If you find the code here useful, please cite our paper:
+
+Liu Y, Nacewicz BM, Zhao G, Adluru N, Kirk GR, Ferrazzano PA, Styner MA and Alexander AL (2020) A 3D Fully Convolutional Neural Network
+With Top-Down Attention-Guided Refinement for Accurate and Robust Automatic Segmentation of Amygdala and Its Subnuclei. Front. Neurosci.14:260. doi: 10.3389/fnins.2020.00260
 ## Getting Started
 
 
