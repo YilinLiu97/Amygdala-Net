@@ -34,7 +34,7 @@ def do(argv):
         Assd_array = []
         Dice_array = []
         print(num_classes)
-        for res_c,ref_c in zip([2,3,4,5,7,8,9,10],[2,3,4,5,7,8,9,10]):
+        for res_c,ref_c in zip(range(num_classes),range(num_classes)): #or some specific class labels, e.g., zip([2,3,4], [2,3,4])
             dc = mmb.dc(result == res_c, reference == ref_c)
             assd = mmb.assd(result == res_c, reference == ref_c,voxelspacing=res)
             Assd_array.append(assd)
